@@ -2,9 +2,9 @@ const userModel = require("../models/UserData");
 const router = require("express").Router();
 const userProduct = require("../models/product");
 const ContactSchema = require("../models/ContactData");
-const stripe = require("stripe")("sk_test_51NpOMnSBSV95ygGwLKmtVbALhhM6nNITv8rGqXgexHsFDv0XwiYc2xok9YIq3meFVRtNHgjqmi22YeG7MMN1Xy0U00vVSCngmH");
-
 require("dotenv").config();
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 router.post("/signup", async (req, res) => {
   console.log(req.body);
